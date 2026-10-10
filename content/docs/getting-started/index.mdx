@@ -1,0 +1,40 @@
+---
+title: Getting started
+description: Add pages and control the sidebar.
+---
+
+# Getting started
+
+## Add a page
+
+Create a file such as `content/docs/handbook/welcome.mdx`:
+
+```mdx
+---
+title: Welcome
+description: First page in the handbook
+---
+
+# Welcome
+
+Your content here.
+```
+
+It will be available at `/docs/handbook/welcome`.
+
+## Sidebar order
+
+Add `meta.json` next to your MDX files:
+
+```json
+{
+  "welcome": { "title": "Welcome", "order": 1 },
+  "drafts": { "hidden": true }
+}
+```
+
+Use `"index"` for section landing pages (`index.mdx`).
+
+## Duplicate a template
+
+Copy [Your first page](/docs/getting-started/your-first-page) when you want a minimal starting point.
