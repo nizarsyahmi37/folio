@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { AdSlot } from "@/components/ads/ad-slot";
 import { FolioLogo } from "@/components/folio-logo";
 import { Button } from "@/components/ui/button";
+import { hasAdsensePlacement } from "@/lib/ads-config";
 import { siteConfig } from "@/lib/site-config";
 
 const pillars = [
@@ -19,6 +21,7 @@ const pillars = [
 ];
 
 export default function HomePage() {
+  const homeAd = hasAdsensePlacement("home");
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -64,6 +67,13 @@ export default function HomePage() {
           </div>
         </section>
 
+        {homeAd ? (
+          <section className="border-t border-border px-6 py-10">
+            <div className="mx-auto max-w-3xl">
+              <AdSlot placement="home" />
+            </div>
+          </section>
+        ) : null}
 
         <section className="border-t border-border bg-muted">
           <div className="mx-auto grid max-w-5xl gap-10 px-6 py-20 md:grid-cols-3">

@@ -1,6 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import { MdxAd } from "@/components/ads/mdx-ad";
 import { FolioImage, FolioVideo } from "@/components/docs/mdx-authoring";
 import { cn } from "@/lib/utils";
 
@@ -176,4 +177,5 @@ export const mdxComponents: MDXComponents = {
   Callout,
   FolioImage,
   FolioVideo,
+  Ad: MdxAd,
 };

@@ -8,7 +8,9 @@ import { DocPageSkeleton } from "@/components/docs/doc-page-skeleton";
 import { DocsBreadcrumb } from "@/components/docs/docs-breadcrumb";
 import { DocsPager } from "@/components/docs/docs-pager";
 import { DocsToc } from "@/components/docs/docs-toc";
+import { AdSlot } from "@/components/ads/ad-slot";
 import { mdxComponents } from "@/components/docs/mdx-components";
+import { hasAdsensePlacement } from "@/lib/ads-config";
 import {
   extractHeadings,
   getAdjacentDocs,
@@ -56,6 +58,10 @@ async function DocPageContent({ params }: PageProps) {
 
   const headings = extractHeadings(doc.content);
   const { prev, next } = getAdjacentDocs(doc.slug);
+  const showDocAds = doc.frontmatter.ads !== false;
+  const sidebarAd = showDocAds && hasAdsensePlacement("docsSidebar");
+  const articleAd = showDocAds && hasAdsensePlacement("docsArticle");
+
   const { content } = await compileMDX({
     source: doc.content,
     components: mdxComponents,
@@ -79,11 +85,21 @@ async function DocPageContent({ params }: PageProps) {
       >
         <DocsBreadcrumb title={doc.frontmatter.title ?? "Docs"} slug={doc.slug} />
         <div className="folio-prose mt-8">{content}</div>
+        {articleAd ? (
+          <AdSlot placement="docsArticle" className="mt-10 max-w-[70ch]" />
+        ) : null}
         <DocsPager prev={prev} next={next} />
       </article>
-      <aside className="hidden w-56 shrink-0 xl:block">
-        <div className="sticky top-24">
+      <aside
+        className={
+          sidebarAd
+            ? "hidden w-56 shrink-0 xl:block xl:w-64"
+            : "hidden w-56 shrink-0 xl:block"
+        }
+      >
+        <div className="sticky top-24 space-y-8">
           <DocsToc headings={headings} />
+          {sidebarAd ? <AdSlot placement="docsSidebar" /> : null}
         </div>
       </aside>
     </div>

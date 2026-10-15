@@ -9,6 +9,8 @@ export type DocFrontmatter = {
   description?: string;
   /** BCP 47 language tag for this page (WCAG 3.1.1). */
   lang?: string;
+  /** Set `ads: false` to hide doc ad placements on this page. */
+  ads?: boolean;
 };
 
 export type DocPage = {
