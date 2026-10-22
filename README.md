@@ -96,12 +96,21 @@ Use a specific ad unit: `<Ad slot="1234567890" />`. Disable ads on one page with
 
 You are responsible for AdSense policies, consent (e.g. GDPR), and `ads.txt` on your domain.
 
-## Accessibility (optional)
+## Accessibility
 
-The UI uses high-contrast tokens and focus styles in light and dark mode. To check theme contrast locally:
+Folio targets **WCAG 2.1 AAA** (light and dark), **WAI-ARIA 1.2 / APG** (roles and states), **ATAG 2.0 AAA** (MDX authoring), and **UAAG 2.0-aligned** browser and AT support.
 
 ```bash
-npm run verify:a11y
+npm run verify:compliance   # full gate (runs before `npm run build`)
+npm run verify:pages        # /, /docs/*, /dashboard, 404 shells + MDX list
+npm run verify:a11y         # contrast + UI typography guards only
 ```
 
-This does not run on `build`; use it when you change colors or typography.
+Covers **every page** in light and dark: marketing home, workspace, not-found, and each docs route via the shared `DocsShell` + `.folio-prose` template.
+
+- [WCAG-CONFORMANCE.md](WCAG-CONFORMANCE.md)
+- [WAI-ARIA-CONFORMANCE.md](WAI-ARIA-CONFORMANCE.md)
+- [ATAG-CONFORMANCE.md](ATAG-CONFORMANCE.md)
+- [UAAG-CONFORMANCE.md](UAAG-CONFORMANCE.md)
+- [docs/atag-manual-checklist.md](docs/atag-manual-checklist.md)
+- In-app: [/docs/for-authors](/docs/for-authors)

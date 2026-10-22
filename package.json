@@ -5,10 +5,17 @@
   "description": "Folio — documentation that prioritizes beautiful writing and reading",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run verify:compliance && next build",
     "start": "next start",
     "lint": "eslint",
-    "verify:a11y": "node scripts/verify-contrast.mjs && node scripts/verify-ui-source.mjs"
+    "verify:a11y": "node scripts/verify-contrast.mjs && node scripts/verify-ui-source.mjs",
+    "verify:wcag": "node scripts/verify-contrast.mjs",
+    "verify:pages": "node scripts/verify-pages.mjs",
+    "verify:aria": "node scripts/verify-aria.mjs",
+    "verify:uaag": "node scripts/verify-uaag.mjs",
+    "verify:content": "node scripts/verify-content.mjs",
+    "verify:compliance": "node scripts/verify-compliance.mjs",
+    "verify:atag": "npm run verify:compliance"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
