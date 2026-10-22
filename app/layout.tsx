@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Source_Serif_4 } from "next/font/google";
 import { AdsenseScript } from "@/components/ads/adsense-script";
@@ -29,6 +29,12 @@ export const metadata: Metadata = {
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
+};
+
+/** UAAG 1.8.4 / WCAG 1.4.4 — do not restrict zoom or text scaling. */
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

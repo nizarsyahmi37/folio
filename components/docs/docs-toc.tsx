@@ -39,30 +39,38 @@ export function DocsToc({ headings }: { headings: DocHeading[] }) {
   }
 
   return (
-    <nav aria-label="On this page" className="space-y-2">
-      <p className="text-sm font-medium tracking-wide text-muted-foreground uppercase">
+    <div className="space-y-2">
+      <p
+        id="doc-toc-heading"
+        className="text-sm font-medium tracking-wide text-muted-foreground uppercase"
+      >
         On this page
       </p>
-      <ul className="space-y-1.5 text-sm">
-        {headings.map((heading) => (
-          <li
-            key={heading.id}
-            className={cn(heading.level === 3 && "pl-3")}
-          >
-            <a
-              href={`#${heading.id}`}
-              className={cn(
-                touchTargetRow,
-                "w-full text-muted-foreground underline decoration-transparent underline-offset-[3px] transition-colors hover:text-foreground hover:decoration-foreground",
-                activeId === heading.id &&
-                  "font-medium text-foreground decoration-foreground"
-              )}
+      <nav aria-labelledby="doc-toc-heading" className="space-y-1.5">
+        <ul className="space-y-1.5 text-sm">
+          {headings.map((heading) => (
+            <li
+              key={heading.id}
+              className={cn(heading.level === 3 && "pl-3")}
             >
-              {heading.text}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+              <a
+                href={`#${heading.id}`}
+                aria-current={
+                  activeId === heading.id ? "location" : undefined
+                }
+                className={cn(
+                  touchTargetRow,
+                  "w-full text-muted-foreground underline decoration-transparent underline-offset-[3px] transition-colors hover:text-foreground hover:decoration-foreground",
+                  activeId === heading.id &&
+                    "font-medium text-foreground decoration-foreground"
+                )}
+              >
+                {heading.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
   );
 }

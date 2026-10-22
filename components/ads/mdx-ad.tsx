@@ -18,7 +18,7 @@ export function MdxAd({ placement = "docsArticle", slot: slotProp }: MdxAdProps)
   return (
     <aside
       aria-label="Advertisement"
-      className="my-10 not-prose rounded-md border border-border bg-muted/40 p-4"
+      className="my-10 not-prose rounded-md border border-border bg-muted p-4"
     >
       <p className="mb-3 text-center text-xs font-medium uppercase tracking-wide text-muted-foreground">
         Sponsored

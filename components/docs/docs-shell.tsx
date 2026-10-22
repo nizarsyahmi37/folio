@@ -24,7 +24,10 @@ export function DocsShell({
 }) {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 border-b border-border bg-background backdrop-blur-md supports-backdrop-filter:bg-background">
+      <header
+        aria-label="Documentation"
+        className="sticky top-0 z-40 border-b border-border bg-background backdrop-blur-md supports-backdrop-filter:bg-background"
+      >
         <div className="flex h-14 items-center gap-3 px-4 lg:px-6">
           <Sheet>
             <SheetTrigger
@@ -35,7 +38,7 @@ export function DocsShell({
                   className="lg:hidden"
                   aria-label="Open navigation"
                 >
-                  <Menu className="size-4" />
+                  <Menu className="size-4" aria-hidden />
                 </Button>
               }
             />

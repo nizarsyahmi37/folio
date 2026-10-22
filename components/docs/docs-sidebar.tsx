@@ -82,6 +82,7 @@ function SidebarFolder({
   isActive: boolean;
 }) {
   const [open, setOpen] = useState(isActive);
+  const panelId = `sidebar-section-${item.name}`;
 
   return (
     <Collapsible
@@ -114,6 +115,8 @@ function SidebarFolder({
             "shrink-0 rounded-md text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
             focusRing
           )}
+          aria-expanded={open}
+          aria-controls={panelId}
           aria-label={`${open ? "Collapse" : "Expand"} ${item.title} section`}
         >
           <ChevronRight
@@ -122,7 +125,10 @@ function SidebarFolder({
           />
         </CollapsibleTrigger>
       </div>
-      <CollapsibleContent className="ml-2 border-l border-sidebar-border pl-2">
+      <CollapsibleContent
+        id={panelId}
+        className="ml-2 border-l border-sidebar-border pl-2"
+      >
         <div className="flex flex-col gap-0.5 py-1">
           {item.children.map((child) => (
             <SidebarNode key={child.name} item={child} pathname={pathname} />
