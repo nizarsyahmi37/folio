@@ -16,7 +16,7 @@ export default function DashboardPage() {
       className="mx-auto flex min-h-screen max-w-lg flex-col justify-center px-6 py-16"
     >
       <FolioLogo className="text-xl" />
-      <h1 className="mt-8 font-serif text-3xl font-medium tracking-tight">
+      <h1 className="mt-8 font-serif text-3xl font-medium tracking-tight text-foreground">
         Workspace
       </h1>
       <p className="mt-4 leading-relaxed text-muted-foreground">

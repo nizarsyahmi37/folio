@@ -28,7 +28,7 @@ export default function HomePage() {
       <header className="border-b border-border">
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
           <FolioLogo />
-          <nav className="flex items-center gap-1">
+          <nav aria-label="Primary" className="flex items-center gap-1">
             <Button
               variant="ghost"
               size="sm"
