@@ -1,4 +1,5 @@
 {
   "index": { "title": "Introduction", "order": 1 },
-  "getting-started": { "title": "Getting started", "order": 2 }
+  "getting-started": { "title": "Getting started", "order": 2 },
+  "for-authors": { "title": "For authors", "order": 3 }
 }

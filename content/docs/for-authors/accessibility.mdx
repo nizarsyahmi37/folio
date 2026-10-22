@@ -1,0 +1,43 @@
+---
+title: Accessible writing
+description: Author MDX for WCAG 2.1 AAA output in Folio.
+---
+
+# Accessible writing
+
+Write in **MDX** under `content/docs/`. Folio checks your files before production builds.
+
+## Frontmatter
+
+```yaml
+---
+title: Clear page title
+description: One or two sentences for context
+lang: en
+---
+```
+
+## Headings and links
+
+- One `#` heading per page.
+- Do not skip heading levels.
+- Use descriptive link text, not “click here.”
+
+## Images
+
+```mdx
+<FolioImage
+  src="/images/diagram.png"
+  alt="Three services behind a load balancer"
+  caption="Production topology"
+/>
+```
+
+## Checks
+
+| Command | Purpose |
+| --- | --- |
+| `npm run verify:content` | MDX author rules (ATAG Part B) |
+| `npm run verify:compliance` | WCAG contrast, UAAG alignment, and content |
+
+See `WCAG-CONFORMANCE.md`, `WAI-ARIA-CONFORMANCE.md`, `ATAG-CONFORMANCE.md`, and `UAAG-CONFORMANCE.md` in the repository root.

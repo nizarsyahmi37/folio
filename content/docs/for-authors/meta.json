@@ -1,0 +1,5 @@
+{
+  "index": { "title": "Author guide", "order": 1 },
+  "accessibility": { "title": "Accessible writing", "order": 2 },
+  "keyboard-shortcuts": { "title": "Keyboard shortcuts", "order": 3 }
+}
